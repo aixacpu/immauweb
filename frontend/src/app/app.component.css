@@ -1,0 +1,83 @@
+/* Section Hero (en-tête avec fond jaune pastel) */
+.hero {
+  background-color: #f8e1a1;  
+  color: #333;  
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #5d5d5d;  
+}
+
+.hero .btn {
+  background-color: #a8e6cf;  
+  color: white;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-size: 16px;
+}
+
+.hero .btn:hover {
+  background-color: #80d3a7;  
+}
+
+/* Conteneur principal (avec bordures arrondies et ombre douce) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Boutons principaux */
+.btn-primary {
+  background-color: #5d9e5d;  
+  border-color: #5d9e5d;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #4a7f4a;  
+}
+
+/* Footer */
+footer {
+  background-color: #a8e6cf; 
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Table des biens immobiliers */
+.table {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}

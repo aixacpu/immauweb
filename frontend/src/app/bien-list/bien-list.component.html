@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <h2 class="text-center mb-4">Liste des biens immobiliers</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bien of biens">
+        <td>{{ bien.titre }}</td>
+        <td>{{ bien.description }}</td>
+        <td>
+          <button class="btn btn-primary">Modifier</button>
+          <button class="btn btn-danger" (click)="deleteBien(bien.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" routerLink="/ajouter-bien">Ajouter un bien</button>
+</div>

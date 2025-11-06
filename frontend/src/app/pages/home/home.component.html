@@ -1,0 +1,27 @@
+<div class="container-fluid mt-4">
+  <h2 class="text-center mb-4" style="color: #28a745;">🏠 <strong>Liste des biens immobiliers</strong></h2>
+  <div class="row mt-4">
+    <div
+      class="col-lg-4 col-md-6 mb-4"
+      *ngFor="let bien of biens"
+    >
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; overflow: hidden; background: linear-gradient(135deg, #f9f9f9, #e9ecef); transition: transform 0.3s ease;">
+        <div *ngIf="bien.photos && bien.photos.length > 0" class="card-img-top" style="height: 200px; background: url('{{ bien.photos[0].url }}') center/cover no-repeat; border-bottom: 3px solid #ffc107;"></div>
+        <div *ngIf="!bien.photos || bien.photos.length === 0" class="card-img-top d-flex align-items-center justify-content-center" style="height: 200px; background: linear-gradient(135deg, #ffc107, #28a745); color: white; font-size: 1.2em;">
+          🏠 {{ bien.titre }}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" style="color: #28a745;">{{ bien.titre }}</h5>
+          <p class="card-text text-muted">{{ bien.description }}</p>
+          <ul class="list-unstyled">
+            <li><strong style="color: #ffc107;">Type :</strong> {{ bien.typeBien }}</li>
+            <li><strong style="color: #ffc107;">Transaction :</strong> {{ bien.transaction }}</li>
+            <li><strong style="color: #ffc107;">Surface :</strong> {{ bien.surface }} m²</li>
+            <li><strong style="color: #ffc107;">Prix :</strong> {{ bien.prix | currency:'EUR':'symbol':'1.0-0' }}</li>
+          </ul>
+          <a [routerLink]="['/bien-detail', bien.id]" class="btn btn-success w-100 mt-3" style="border-radius: 10px;">Voir détails</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

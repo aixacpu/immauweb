@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4" style="color: #28a745;">🏠 <strong>Ajouter un bien immobilier</strong></h2>
+  <form [formGroup]="bienForm" (ngSubmit)="onSubmit()" class="bg-light p-4 rounded shadow">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="titre" class="form-label">Titre</label>
+        <input type="text" class="form-control" id="titre" formControlName="titre" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="typeBien" class="form-label">Type de bien</label>
+        <select class="form-select" id="typeBien" formControlName="typeBien">
+          <option value="Appartement">Appartement</option>
+          <option value="Maison">Maison</option>
+          <option value="Terrain">Terrain</option>
+          <option value="Bureau">Bureau</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="transaction" class="form-label">Transaction</label>
+        <select class="form-select" id="transaction" formControlName="transaction">
+          <option value="Vente">Vente</option>
+          <option value="Location">Location</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="prix" class="form-label">Prix (€)</label>
+        <input type="number" class="form-control" id="prix" formControlName="prix" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="surface" class="form-label">Surface (m²)</label>
+        <input type="number" class="form-control" id="surface" formControlName="surface" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="photos" class="form-label">Photos</label>
+        <input type="file" class="form-control" id="photos" multiple accept="image/*" (change)="onFileChange($event)">
+        <small class="form-text text-muted">Sélectionnez plusieurs images pour votre bien immobilier.</small>
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="selectedFiles && selectedFiles.length > 0">
+      <label class="form-label">Aperçu des images sélectionnées:</label>
+      <div class="d-flex flex-wrap">
+        <div *ngFor="let file of selectedFiles; let i = index" class="me-2 mb-2">
+          <img [src]="file.preview" alt="Aperçu" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
+          <button type="button" class="btn btn-sm btn-danger mt-1" (click)="removeFile(i)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success w-100" [disabled]="!bienForm.valid">Ajouter le bien</button>
+  </form>
+</div>
+
+
